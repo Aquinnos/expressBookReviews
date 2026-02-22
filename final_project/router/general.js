@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 const { books } = require('./booksdb.js');
 
 const general = express.Router();
@@ -86,3 +87,51 @@ general.use('/', public_users);
 
 module.exports.general = general;
 module.exports.users = users;
+
+// Async/Axios implementations for Tasks 10-13
+const BASE_URL = 'http://localhost:5001';
+
+async function getBooks() {
+  try {
+    const resp = await axios.get(`${BASE_URL}/`);
+    return resp.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+async function getBookByISBN(isbn) {
+  try {
+    const resp = await axios.get(`${BASE_URL}/isbn/${isbn}`);
+    return resp.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+async function getBooksByAuthor(author) {
+  try {
+    const resp = await axios.get(
+      `${BASE_URL}/author/${encodeURIComponent(author)}`,
+    );
+    return resp.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+async function getBooksByTitle(title) {
+  try {
+    const resp = await axios.get(
+      `${BASE_URL}/title/${encodeURIComponent(title)}`,
+    );
+    return resp.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+module.exports.getBooks = getBooks;
+module.exports.getBookByISBN = getBookByISBN;
+module.exports.getBooksByAuthor = getBooksByAuthor;
+module.exports.getBooksByTitle = getBooksByTitle;
