@@ -1,0 +1,14 @@
+curl -i -X POST http://localhost:5001/register -H "Content-Type: application/json" -d '{"username":"krystian","password":"pass123"}' | tee register
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 49
+ETag: W/"31-893i5eRY1NwqwajAXlC2Lk8iG+Y"
+Date: Sun, 22 Feb 2026 15:06:11 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{
+    "message": "User registered successfully"
+}

@@ -5,7 +5,6 @@ const { books } = require('./booksdb.js');
 const general = express.Router();
 const public_users = express.Router();
 
-// Simple in-memory users store for registration
 const users = [];
 
 public_users.get('/', function (req, res) {

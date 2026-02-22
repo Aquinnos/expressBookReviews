@@ -1,0 +1,16 @@
+curl -i http://localhost:5001/isbn/9780143127550 | tee getbooksbyISBN
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 87
+ETag: W/"57-CzddpiTEITSrIL1gHvQDFe/R7+U"
+Date: Sun, 22 Feb 2026 15:10:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "reviews": {}
+}
