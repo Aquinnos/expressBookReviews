@@ -88,7 +88,6 @@ general.use('/', public_users);
 module.exports.general = general;
 module.exports.users = users;
 
-// Async/Axios implementations for Tasks 10-13
 const BASE_URL = 'http://localhost:5001';
 
 async function getBooks() {
