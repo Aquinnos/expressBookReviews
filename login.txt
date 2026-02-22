@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 37
+ETag: W/"25-4dxva4+pGI4gD9q8nr9Z1+pbt4c"
+Set-Cookie: connect.sid=s%3A-xBF7Pe8yTCPhGcNUNOhWMa3xJvucXA7.Z4ahWMu9BwS0hJ5LDscYbl4ZJ0RuA30iZXZKInQZuyM; Path=/; HttpOnly
+Date: Sun, 22 Feb 2026 15:06:16 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{
+    "message": "Login successful"
+}

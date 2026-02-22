@@ -4,6 +4,9 @@ const { books } = require('./booksdb.js');
 const general = express.Router();
 const public_users = express.Router();
 
+// Simple in-memory users store for registration
+const users = [];
+
 public_users.get('/', function (req, res) {
   return res.send(JSON.stringify(books, null, 4));
 });
@@ -52,18 +55,34 @@ public_users.get('/review/:isbn', function (req, res) {
   }
 });
 
-/* Complete the code for registering a new user
-Hint: The code should take the 'username' and 'password' provided in the body of the request for registration. If the username already exists, it must mention the same & must also show other errors like eg. when username & password are not provided. */
 public_users.post('/register', function (req, res) {
-  const { username, password } = req.body;
+  const { username, password } = req.body || {};
   if (!username || !password) {
-    return res.status(400).json({ message: 'Username and password are required' });
+    return res
+      .status(400)
+      .send(
+        JSON.stringify(
+          { message: 'Username and password are required' },
+          null,
+          4,
+        ),
+      );
   }
-  // Here you would typically check if the username already exists in your user database
-  // For simplicity, we will just return a success message
-  return res.status(201).json({ message: 'User registered successfully' });
+
+  const existing = users.find((u) => u.username === username);
+  if (existing) {
+    return res
+      .status(400)
+      .send(JSON.stringify({ message: 'User already exists' }, null, 4));
+  }
+
+  users.push({ username, password });
+  return res
+    .status(200)
+    .send(JSON.stringify({ message: 'User registered successfully' }, null, 4));
 });
 
 general.use('/', public_users);
 
 module.exports.general = general;
+module.exports.users = users;
