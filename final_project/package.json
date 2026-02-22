@@ -1,0 +1,19 @@
+{
+  "name": "expressbookreviews",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.19"
+  }
+}
